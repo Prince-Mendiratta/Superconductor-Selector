@@ -473,6 +473,12 @@ input[type=text]{
   background-color: #dc3545;
   border-color: #dc3545;
 }
+.inlineFormInputGroup {
+  width: 300px;
+  margin-top:5px;
+  width: 100%;
+
+}
 p {
   font-size: 1.1rem;
   padding-top: 5px;

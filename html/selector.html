@@ -11,39 +11,33 @@
     <!-- Project Style Sheet -->
     <link rel="stylesheet" href="../css/balancer_style.css">
     <!-- Meta Title, Description and Canonical URL Starts --->
-    <title>Chemical Equation Balancer</title>
+    <title>Superconductor Selector</title>
     <!-- Meta Title, Description and Canonical URL ENDS --->
+    <script type="text/javascript" src="../js/data.json"></script>
   </head>
-  <body>
+  <body onload="load()">
     <nav class="navbar fixed-top navbar-expand-sm">
-      <a class="navbar-brand" href="../index.html">ACC</a>
+      <a class="navbar-brand" href="../index.html">Home</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fa fa-bars"></i>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="./periodic.html">Periodic Table</a>
-          </li>
-        </ul>
-      </div>
     </nav>
     <div class="container" style="height: auto !important;">
       <div class="card c1">
         <div class="card-header">
-          <h1 class="h1">Chemical Equation Balancer</h1>
+          <h1 class="h1">Superconductor Selector</h1>
         </div>
         <div class="card-body"></div>
         <div class="d-flex justify-content-center">
-          <form onsubmit="event.preventDefault(); doBalance();">
-            <strong>Enter the unbalanced Chemical Equation </strong>
+          <form onsubmit="doSelection();">
+            <strong>Enter the values as per requirement</strong>
             <div class="form-row align-items-center">
               <div class="col-auto">
                 <div class="input-group mb-2">
                   <div class="input-group-prepend">
                     <div class="input-group-text"><strong>Enter the class</strong></div>
                   </div>
-                  <select class="select form-control" id="inlineFormInputGroup" onchange="GetSelectedTextValue(this)" name="mass-unit">
+                  <select class="select form-control inlineFormInputGroup" id="inputEle" onchange="GetSelectedTextValue(this)" name="ele">
                     <option selected="selected">Element</option>
                     <option>Compound</option>
                     <option>Cuprate</option>
@@ -52,51 +46,51 @@
                 </div>
                 <div class="input-group mb-2">
                   <div class="input-group-prepend">
-                    <div class="input-group-text"><strong>Enter the type  </strong></div>
+                    <div class="input-group-text"><strong>Enter the type</strong></div>
                   </div>
-                  <select class="select form-control" id="inlineFormInputGroup" onchange="GetSelectedTextValue(this)" name="mass-unit">
+                  <select class="select form-control inlineFormInputGroup" id="inputType" onchange="GetSelectedTextValue(this)" name="typed">
                     <option selected="selected">I</option>
                     <option>II</option>
-                    <option>Not-required</option>
+                    <option>Not-Applicable</option>
                   </select>
                 </div>
                 <div class="input-group mb-2">
                   <div class="input-group-prepend">
                     <div class="input-group-text"><strong>BCS Required?</strong></div>
                   </div>
-                  <select class="select form-control" id="inlineFormInputGroup" onchange="GetSelectedTextValue(this)" name="mass-unit">
+                  <select class="select form-control inlineFormInputGroup" id="inputBCS" onchange="GetSelectedTextValue(this)" name="bcs">
                     <option selected="selected">Yes</option>
                     <option>No</option>
-                    <option>Not-required</option>
+                    <option>Not-Applicable</option>
                   </select>
                 </div>
-                <div class="input-group mb-2">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text"><strong>Substance</strong></div>
-                  </div>
-                  <input type="text" readonly="" required="" maxlength="10" class="form-control" name="mass-input" id="inlineFormInputGroup" placeholder="Enter number">
-                </div>
-                <div class="input-group mb-2">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text"><strong>T<sub>c</sub></strong></div>
-                  </div>
-                  <input type="text" readonly="" required="" maxlength="10" class="form-control" name="mass-input" id="inlineFormInputGroup" placeholder="Enter number">
-                </div>
-                <div class="input-group mb-2">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text"><strong>H<sub>c</sub></strong></div>
-                  </div>
-                  <input type="text" readonly="" required="" maxlength="10" class="form-control" name="mass-input" id="inlineFormInputGroup" placeholder="Enter number">
-                </div>
+                <div id="table">
+                  <pre>
+                    <code>
+                      <table>
+                       <thead>
+                         <tr>
+                           <th>S.No</th>
+                           <th>Substance</th>
+                           <th>T<sub>c</sub></th>
+                           <th>H<sub>c</sub></th>
+                         </tr>
+                       </thead>
+                       <tbody id="tableBody">
+                       </tbody>
+                       </table>
+                    </code>
+                  </pre>
+                </div>  
               </div>
             </div>
             <div class=" center col mt-2 ">
               &nbsp;&nbsp;&nbsp;&nbsp;	
               <input id="botton1" class="btn btn-danger mb-2" type="button" onclick="myFunction()" value="Clear">
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <button type="submit" class="btn btn-primary mb-2">Calculate</button>
+              <button type="submit" class="btn btn-primary mb-2" onclick="doSelection();">Calculate</button>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <button type="button" class="btn btn-secondary mb-2" onclick="doRandom();">Random</button>
+              <button type="button" class="btn btn-secondary mb-2" onclick="doThis();">Random</button>
             </div>
           </form>
         </div>
@@ -189,12 +183,7 @@
         </div>
       </div>
     </div>
-    <script>
-      function myFunction() {
-      	document.getElementsByName("eqwt")[0].value="";
-         document.getElementsByName("result")[0].value="";
-      }
-    </script>
   </body>
-  <script src="../js/chemical-equation-balancer.js"></script>
+  <script></script>
+  <script src="../js/selector.js"></script>
 </html>
