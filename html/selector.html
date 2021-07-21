@@ -88,7 +88,7 @@
               &nbsp;&nbsp;&nbsp;&nbsp;	
               <input id="botton1" class="btn btn-danger mb-2" type="button" onclick="myFunction()" value="Clear">
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <button type="submit" class="btn btn-primary mb-2" onclick="doSelection();">Calculate</button>
+              <button type="button" class="btn btn-primary mb-2" onclick="doSelection();">Calculate</button>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <button type="button" class="btn btn-secondary mb-2" onclick="doThis();">Random</button>
             </div>
@@ -183,7 +183,11 @@
         </div>
       </div>
     </div>
+    <script>
+      function myFunction() {
+      	document.getElementById("tableBody").innerHTML="";
+      }
+    </script>
   </body>
-  <script></script>
   <script src="../js/selector.js"></script>
 </html>

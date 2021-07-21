@@ -17,6 +17,9 @@ function doSelection() {
             s++;
         }
     }
+    if (impresionTabla == "") {
+        impresionTabla = "<tr><td>" + ("No Suitable Superconductor for the mentioned permutation.") + "</td><td>"
+    }
     getById("tableBody").innerHTML = impresionTabla;
 }
 
